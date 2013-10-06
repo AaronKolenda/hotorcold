@@ -8,24 +8,44 @@ $(document).ready(function(){									//jQuery that adds the results of the gues
 	var write = guessUpdate(document.getElementById("guess").value);
 	$('.result').append('<p>' + write + '</p>');				//and new results are added
 	$('#guess').val("");    									//empties the input field
+	document.getElementById('guess').focus();					//sets focus back to input field
 	});
 	
+	
 	//this resets the game if the user clicks the reset button
+	
 	$("#reset").click(function(){						//when the reset button is clicked
 	document.body.style.backgroundColor="#C0C0C0"		//resets the background to gray
 	realNum = Math.floor((Math.random()*100)+1); 		//resets the random number
 	lastGuess = 0;										//resets the last guess
 	$('#guess').val("");    							//empties the input field
+	document.getElementById('guess').focus();			//sets focus back to input field
 	$('.result').empty();								//empties the result div
 	$('.result').append("<p>The game has been reset.</p>");	//notifies the user of the reset
 	});
-	});
+});
+
+	
+	//this handles the pressing of enter as clicking the guess button
+	
+$(document).keypress(function(event){			
+    var keycode = (event.which);				//when key is pressed
+    if(keycode == '13'){						//if that key was 13 (enter)
+        $("#button").click();   				//then button is "clicked"
+    }
+});
+	
+	
+	/*The guessUpdate function processes the guess. It tells the user if they pick a non valid or out of range number, 
+	resets the game if they pick correctly, tells them what temperature range their guess was in, tells whether their 
+	guess was warmer or colder than the last guess, and changes the background color */
 	
 function guessUpdate(guess) {						
 	var currentGuess = guess;		//number that the user guessed
 	var outputString = "";			//keeps track of the things that will be output on the page
 	
 	//this corrects the user if they pick a number out of range:
+	
 	if ((isNaN(parseInt(currentGuess))) || currentGuess > 100 || currentGuess < 1) {
 		outputString = "You didn't pick a valid number in between 1 and 100, please guess again.";
 		return outputString;								//notifies the user
@@ -80,6 +100,7 @@ function guessUpdate(guess) {
 		
 		/*this if else...statement compares the distance between the user's guess and the correct number to the distance
 		between the user's last guess and the correct number. Adds whether they are hotter or colder to the output string*/
+		
 	if (distance < lastDistance) {			
 			str3 = " Also, you are warmer than your last guess.";
 			}
