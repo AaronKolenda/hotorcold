@@ -11,14 +11,22 @@
 	
 	<body>
 	
-	<div id="container">
+		<div id="container">  		<!--A container element centers the page-->
 	
-	<h1>Guess a number in between 1 and 100. You will be told if you are hotter or colder than the correct number.</h1>
+		<h1>Guess a number in between 1 and 100. You will be told if you are hotter or colder than the correct number.</h1>
 	
-	<input type="text" id="guess"></input>
+		<input type="text" id="guess"></input>
 	
-	<button id="button">Guess!</button>
+			<div class="displayButtons">		<!--Buttons in there own div to display them on their own line-->
+			<button id="button">Guess!</button>
+			<button id="reset">Reset</button>
+			</div>	<!--end displayButtons-->				
+			
+			<div class="result">			<!--The result of each guess will be appended to this div-->	
+			</div>   <!--end result-->	
 	
-	</div>
+		</div>		<!--end container-->
+		
 	</body>
+	
 	</html>
