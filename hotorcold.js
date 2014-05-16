@@ -15,7 +15,8 @@ $(document).ready(function(){									//jQuery that adds the results of the gues
 	//this resets the game if the user clicks the reset button
 	
 	$("#reset").click(function(){						//when the reset button is clicked
-	document.body.style.backgroundColor="#C0C0C0"		//resets the background to gray
+	$('body').css({ backgroundColor: '#C0C0C0'});		//resets the background and shadow to gray
+	$('#container').css({ boxShadow: 'inset 0 0 3px 3px #C0C0C0'});
 	realNum = Math.floor((Math.random()*100)+1); 		//resets the random number
 	lastGuess = 0;										//resets the last guess
 	$('#guess').val("");    							//empties the input field
@@ -55,7 +56,8 @@ function guessUpdate(guess) {
 	
 	if (currentGuess == realNum) {						//if the user guessed correctly
 		outputString = "You guessed right!";	
-		document.body.style.backgroundColor="#C0C0C0"   //resets the background to white
+		$('body').css({ backgroundColor: '#C0C0C0'});		//resets the background and shadow to gray
+		$('#container').css({ boxShadow: 'inset 0 0 3px 3px #C0C0C0'});
 		realNum = Math.floor((Math.random()*100)+1); 	//resets the random number
 		lastGuess = 0;									//resets the last guess
 		return outputString;							//tells the user they guessed correctly
@@ -68,27 +70,32 @@ function guessUpdate(guess) {
 	
 	if (distance <= 10) {								//this if else... statement determines what temperature to output
 		str2 = "hot!";
-		document.body.style.backgroundColor="#F01515"; 	//sets the background color to the appropriate color based on the guess
+		$('body').css({ backgroundColor: '#F01515'});  	//sets the background and shadow to the appropriate color based on the guess
+		$('#container').css({ boxShadow: 'inset 0 0 3px 3px #F01515'});
 		}
 		else if (distance <= 25 && distance > 10) 
 		{
 		str2 = "warm!"; 
-		document.body.style.backgroundColor="#D53131"; 
+		$('body').css({ backgroundColor: '#D53131'});  
+		$('#container').css({ boxShadow: 'inset 0 0 3px 3px #D53131'});
 		}
 		else if (distance <= 50 && distance > 25)
 		{
 		str2 = "lukewarm!";
-		document.body.style.backgroundColor="#E519AF"; 
+		$('body').css({ backgroundColor: '#E519AF'});  
+		$('#container').css({ boxShadow: 'inset 0 0 3px 3px #E519AF'});
 		}
 		else if (distance <= 75 && distance > 50)
 		{
 		str2 = "cold!";
-		document.body.style.backgroundColor="#6D33E5"; 
+		$('body').css({ backgroundColor: '#6D33E5'});  
+		$('#container').css({ boxShadow: 'inset 0 0 3px 3px #6D33E5'});
 		}
 		else if (distance <= 100 && distance > 75)
 		{
 		str2 = "freezing!";
-		document.body.style.backgroundColor="#110BC4"; 
+		$('body').css({ backgroundColor: '#110BC4'}); 
+		$('#container').css({ boxShadow: 'inset 0 0 3px 3px #110BC4'});
 		}
 
 	if (lastGuess == 0) {					//if there was no last guess
